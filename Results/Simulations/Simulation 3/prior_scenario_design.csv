@@ -1,0 +1,11 @@
+accuracy,strength,prior_scenario,target,prior_order
+accurate,weak,accurate_weak,trajectory,1
+accurate,moderate,accurate_moderate,trajectory,2
+accurate,strong,accurate_strong,trajectory,3
+mildly_wrong,weak,mildly_wrong_weak,trajectory,4
+mildly_wrong,moderate,mildly_wrong_moderate,trajectory,5
+mildly_wrong,strong,mildly_wrong_strong,trajectory,6
+badly_wrong,weak,badly_wrong_weak,trajectory,7
+badly_wrong,moderate,badly_wrong_moderate,trajectory,8
+badly_wrong,strong,badly_wrong_strong,trajectory,9
+manuscript_default,default,manuscript_default,trajectory,10

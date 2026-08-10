@@ -1,0 +1,103 @@
+panel,accuracy,strength,metric,value,weak_value,improvement_vs_weak,percent_improvement_vs_weak,label,parameter,moved_toward_truth_rate
+A,Accurate prior,Moderate,GT mean absolute error,0.10939907977846586,0.11233657977846569,0.002937499999999829,2.6149095920427268,"0.1094
++2.6%",,
+A,Accurate prior,Moderate,GT SD absolute error,0.10425250000000008,0.12288894739962908,0.018636447399628997,15.165275473492459,"0.1043
++15.2%",,
+A,Accurate prior,Moderate,KL distance to true SI,0.00217284819606996,0.00348949103799921,0.00131664284192925,37.73165850238668,"0.0022
++37.7%",,
+A,Accurate prior,Moderate,Held-out LPD per pair,-3.419021448321216,-3.4198223985872565,8.009502660404344e-4,0.023420814670706596,"-3.41902
++0.023%",,
+A,Accurate prior,Strong,GT mean absolute error,0.09971249999999988,0.11233657977846569,0.012624079778465802,11.23772844371907,"0.0997
++11.2%",,
+A,Accurate prior,Strong,GT SD absolute error,0.06167999999999996,0.12288894739962908,0.06120894739962912,49.80834216162704,"0.0617
++49.8%",,
+A,Accurate prior,Strong,KL distance to true SI,0.00158005102996724,0.00348949103799921,0.0019094400080319701,54.71972809899512,"0.0016
++54.7%",,
+A,Accurate prior,Strong,Held-out LPD per pair,-3.416806084130058,-3.4198223985872565,0.0030163144571986322,0.08820090945204304,"-3.41681
++0.088%",,
+A,Accurate prior,Weak,GT mean absolute error,0.11233657977846569,0.11233657977846569,0,0,"0.1123
++0.0%",,
+A,Accurate prior,Weak,GT SD absolute error,0.12288894739962908,0.12288894739962908,0,0,"0.1229
++0.0%",,
+A,Accurate prior,Weak,KL distance to true SI,0.00348949103799921,0.00348949103799921,0,0,"0.0035
++0.0%",,
+A,Accurate prior,Weak,Held-out LPD per pair,-3.4198223985872565,-3.4198223985872565,0,0,"-3.41982
++0.000%",,
+A,Badly wrong prior,Moderate,GT mean absolute error,0.13847499999999968,0.1215359202215338,-0.016939079778465885,-13.937508966558687,"0.1385
+-13.9%",,
+A,Badly wrong prior,Moderate,GT SD absolute error,0.10407750000000028,0.13078999999999996,0.02671249999999968,20.423962076611126,"0.1041
++20.4%",,
+A,Badly wrong prior,Moderate,KL distance to true SI,0.00284228223643351,0.00318572767770252,3.4344544126901e-4,10.780753285123719,"0.0028
++10.8%",,
+A,Badly wrong prior,Moderate,Held-out LPD per pair,-3.418951164643529,-3.4200019054895243,0.0010507408459954348,0.03072339943170401,"-3.41895
++0.031%",,
+A,Badly wrong prior,Strong,GT mean absolute error,0.1450849999999999,0.1215359202215338,-0.02354907977846611,-19.376230282817797,"0.1451
+-19.4%",,
+A,Badly wrong prior,Strong,GT SD absolute error,0.15343605260037085,0.13078999999999996,-0.022646052600370892,-17.314819634812217,"0.1534
+-17.3%",,
+A,Badly wrong prior,Strong,KL distance to true SI,0.00371245267234908,0.00318572767770252,-5.267249946465597e-4,-16.533898937225626,"0.0037
+-16.5%",,
+A,Badly wrong prior,Strong,Held-out LPD per pair,-3.4178829545981424,-3.4200019054895243,0.002118950891381921,0.06195759388264503,"-3.41788
++0.062%",,
+A,Badly wrong prior,Weak,GT mean absolute error,0.1215359202215338,0.1215359202215338,0,0,"0.1215
++0.0%",,
+A,Badly wrong prior,Weak,GT SD absolute error,0.13078999999999996,0.13078999999999996,0,0,"0.1308
++0.0%",,
+A,Badly wrong prior,Weak,KL distance to true SI,0.00318572767770252,0.00318572767770252,0,0,"0.0032
++0.0%",,
+A,Badly wrong prior,Weak,Held-out LPD per pair,-3.4200019054895243,-3.4200019054895243,0,0,"-3.42000
++0.000%",,
+A,Mildly wrong prior,Moderate,GT mean absolute error,0.1167524999999996,0.11614342022153412,-6.09079778465485e-4,-0.5244203910163098,"0.1168
+-0.5%",,
+A,Mildly wrong prior,Moderate,GT SD absolute error,0.10514000000000023,0.13352500000000012,0.028384999999999883,21.258191349934364,"0.1051
++21.3%",,
+A,Mildly wrong prior,Moderate,KL distance to true SI,0.00220913980163366,0.00322655574183309,0.0010174159401994298,31.532569761878946,"0.0022
++31.5%",,
+A,Mildly wrong prior,Moderate,Held-out LPD per pair,-3.4190447110718845,-3.419760196373624,7.154853017397045e-4,0.020922089873389896,"-3.41904
++0.021%",,
+A,Mildly wrong prior,Strong,GT mean absolute error,0.11086250000000009,0.11614342022153412,0.005280920221534036,4.546895735859259,"0.1109
++4.5%",,
+A,Mildly wrong prior,Strong,GT SD absolute error,0.0592885526003708,0.13352500000000012,0.07423644739962931,55.597414266713535,"0.0593
++55.6%",,
+A,Mildly wrong prior,Strong,KL distance to true SI,0.00205990870789299,0.00322655574183309,0.0011666470339401001,36.1576593521765,"0.0021
++36.2%",,
+A,Mildly wrong prior,Strong,Held-out LPD per pair,-3.417222457420108,-3.419760196373624,0.0025377389535159445,0.07420809670242402,"-3.41722
++0.074%",,
+A,Mildly wrong prior,Weak,GT mean absolute error,0.11614342022153412,0.11614342022153412,0,0,"0.1161
++0.0%",,
+A,Mildly wrong prior,Weak,GT SD absolute error,0.13352500000000012,0.13352500000000012,0,0,"0.1335
++0.0%",,
+A,Mildly wrong prior,Weak,KL distance to true SI,0.00322655574183309,0.00322655574183309,0,0,"0.0032
++0.0%",,
+A,Mildly wrong prior,Weak,Held-out LPD per pair,-3.419760196373624,-3.419760196373624,0,0,"-3.41976
++0.000%",,
+B,Badly wrong prior,Moderate,,,,,,,d,1
+B,Badly wrong prior,Moderate,,,,,,,κ,0.68
+B,Badly wrong prior,Moderate,,,,,,,r,0.96
+B,Badly wrong prior,Moderate,,,,,,,σ_z,0.18
+B,Badly wrong prior,Moderate,,,,,,,m,0.82
+B,Badly wrong prior,Strong,,,,,,,d,1
+B,Badly wrong prior,Strong,,,,,,,κ,0.34
+B,Badly wrong prior,Strong,,,,,,,r,0.6
+B,Badly wrong prior,Strong,,,,,,,σ_z,0.62
+B,Badly wrong prior,Strong,,,,,,,m,0.86
+B,Badly wrong prior,Weak,,,,,,,d,1
+B,Badly wrong prior,Weak,,,,,,,κ,0.86
+B,Badly wrong prior,Weak,,,,,,,r,1
+B,Badly wrong prior,Weak,,,,,,,σ_z,0.08
+B,Badly wrong prior,Weak,,,,,,,m,0.74
+B,Mildly wrong prior,Moderate,,,,,,,d,0.86
+B,Mildly wrong prior,Moderate,,,,,,,κ,0.56
+B,Mildly wrong prior,Moderate,,,,,,,r,0.78
+B,Mildly wrong prior,Moderate,,,,,,,σ_z,0.26
+B,Mildly wrong prior,Moderate,,,,,,,m,0.62
+B,Mildly wrong prior,Strong,,,,,,,d,0.92
+B,Mildly wrong prior,Strong,,,,,,,κ,0.24
+B,Mildly wrong prior,Strong,,,,,,,r,0.54
+B,Mildly wrong prior,Strong,,,,,,,σ_z,0.34
+B,Mildly wrong prior,Strong,,,,,,,m,0.74
+B,Mildly wrong prior,Weak,,,,,,,d,0.52
+B,Mildly wrong prior,Weak,,,,,,,κ,0.7
+B,Mildly wrong prior,Weak,,,,,,,r,0.94
+B,Mildly wrong prior,Weak,,,,,,,σ_z,0.1
+B,Mildly wrong prior,Weak,,,,,,,m,0.54

@@ -1,0 +1,2 @@
+prior_scenario,accuracy,strength,rep_id,job_id,error
+badly_wrong_moderate,badly_wrong,moderate,50,498,ignoring SIGPIPE signal
