@@ -1,0 +1,48 @@
+# stan_version_major = 2
+# stan_version_minor = 36
+# stan_version_patch = 0
+# model = prior_sensitivity_obspair_FAST_model
+# start_datetime = 2026-05-31 22:27:32 UTC
+# method = sample (Default)
+#   sample
+#     num_samples = 300
+#     num_warmup = 300
+#     save_warmup = false (Default)
+#     thin = 1 (Default)
+#     adapt
+#       engaged = true (Default)
+#       gamma = 0.05 (Default)
+#       delta = 0.99
+#       kappa = 0.75 (Default)
+#       t0 = 10 (Default)
+#       init_buffer = 75 (Default)
+#       term_buffer = 50 (Default)
+#       window = 25 (Default)
+#       save_metric = true
+#     algorithm = hmc (Default)
+#       hmc
+#         engine = nuts (Default)
+#           nuts
+#             max_depth = 15
+#         metric = diag_e (Default)
+#         metric_file =  (Default)
+#         stepsize = 1 (Default)
+#         stepsize_jitter = 0 (Default)
+#     num_chains = 1 (Default)
+# id = 1 (Default)
+# data
+#   file = /tmp/RtmpBTQ4ch/standata-1f12e5503481bf.json
+# init = /tmp/RtmpBTQ4ch/init-1f12e54658d949_1.json
+# random
+#   seed = 552011
+# output
+#   file = /home/research/mmappnj4/Measles-county-ranking/GT/New V code/NEW V FIXED/Prior sim/prior_sensitivity_outputs_obspair_FAST/cmdstan_outputs/job0050_rep005_manuscript_default/prior_sensitivity_obspair_FAST-202605312327-1-5953f6.csv
+#   diagnostic_file =  (Default)
+#   refresh = 100 (Default)
+#   sig_figs = -1 (Default)
+#   profile_file = /home/research/mmappnj4/Measles-county-ranking/GT/New V code/NEW V FIXED/Prior sim/prior_sensitivity_outputs_obspair_FAST/cmdstan_outputs/job0050_rep005_manuscript_default/prior_sensitivity_obspair_FAST-profile-202605312327-1-6b560a.csv
+#   save_cmdstan_config = true
+# num_threads = 1 (Default)
+# stanc_version = stanc3 v2.36.0
+# stancflags = --name=prior_sensitivity_obspair_FAST_model
+lp__,accept_stat__,stepsize__,treedepth__,n_leapfrog__,divergent__,energy__,log_lambda1,log_lambda_I,log_r,log_d,m,log_kappa,log_sigma_z,mean_gen,sd_gen,p_si.1,p_si.2,p_si.3,p_si.4,p_si.5,p_si.6,p_si.7,p_si.8,p_si.9,p_si.10,p_si.11,p_si.12,p_si.13,p_si.14,p_si.15,p_si.16,p_si.17,p_si.18,p_si.19,p_si.20,p_si.21,p_si.22,p_si.23,p_si.24,p_si.25,p_si.26,p_si.27,p_si.28,p_si.29,p_si.30,p_si.31,p_si.32,p_si.33,p_si.34,p_si.35,p_si.36,p_si.37,p_si.38,p_si.39,p_si.40,p_si.41,p_si.42,p_si.43,p_si.44,p_si.45,p_si.46,p_si.47,p_si.48,p_si.49,p_si.50,p_si.51,p_si.52,p_si.53,p_si.54,p_si.55,p_si.56,p_si.57,p_si.58,p_si.59,p_si.60,p_si.61,log_lik_cell.1,log_lik_cell.2,log_lik_cell.3,log_lik_cell.4,log_lik_cell.5,log_lik_cell.6,log_lik_cell.7,log_lik_cell.8,log_lik_cell.9,log_lik_cell.10,log_lik_cell.11,log_lik_cell.12,log_lik_cell.13,log_lik_cell.14,log_lik_cell.15,log_lik_cell.16,log_lik_cell.17,log_lik_cell.18,log_lik_cell.19,log_lik_cell.20,log_lik_cell.21,log_lik_cell.22,log_lik_cell.23,log_lik_cell.24,log_lik_cell.25,log_lik_cell.26,log_lik_cell.27,log_lik_cell.28,log_lik_cell.29,log_lik_cell.30,log_lik_cell.31,log_lik_cell.32,log_lik_cell.33,log_lik_cell.34,log_lik_cell.35,log_lik_cell.36,log_lik_cell.37,log_lik_cell.38,log_lik_cell.39,log_lik_cell.40,log_lik_cell.41,log_lik_cell.42,log_lik_cell.43,log_lik_cell.44,log_lik_cell.45,log_lik_cell.46,log_lik_cell.47,log_lik_cell.48,log_lik_cell.49,log_lik_cell.50,log_lik_cell.51,log_lik_cell.52,log_lik_cell.53,log_lik_cell.54,log_lik_cell.55,log_lik_cell.56,log_lik_cell.57,log_lik_cell.58,log_lik_cell.59,log_lik_cell.60,log_lik_cell.61,counts_rep.1,counts_rep.2,counts_rep.3,counts_rep.4,counts_rep.5,counts_rep.6,counts_rep.7,counts_rep.8,counts_rep.9,counts_rep.10,counts_rep.11,counts_rep.12,counts_rep.13,counts_rep.14,counts_rep.15,counts_rep.16,counts_rep.17,counts_rep.18,counts_rep.19,counts_rep.20,counts_rep.21,counts_rep.22,counts_rep.23,counts_rep.24,counts_rep.25,counts_rep.26,counts_rep.27,counts_rep.28,counts_rep.29,counts_rep.30,counts_rep.31,counts_rep.32,counts_rep.33,counts_rep.34,counts_rep.35,counts_rep.36,counts_rep.37,counts_rep.38,counts_rep.39,counts_rep.40,counts_rep.41,counts_rep.42,counts_rep.43,counts_rep.44,counts_rep.45,counts_rep.46,counts_rep.47,counts_rep.48,counts_rep.49,counts_rep.50,counts_rep.51,counts_rep.52,counts_rep.53,counts_rep.54,counts_rep.55,counts_rep.56,counts_rep.57,counts_rep.58,counts_rep.59,counts_rep.60,counts_rep.61
