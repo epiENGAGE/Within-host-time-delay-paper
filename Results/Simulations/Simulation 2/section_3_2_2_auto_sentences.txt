@@ -1,0 +1,5 @@
+Manuscript-ready quantitative sentences
+
+For generation-time mean, the true values were 3.63, 9.99, 20.00 days across the three regimes. The median posterior estimates across simulation replicates were 3.82, 9.63, 19.90 days, respectively. The median absolute errors were 0.19, 0.50, 0.71 days, corresponding to median absolute percentage errors of 5.14%, 4.97%, 3.55%. The proportions of replicates within 1 day of the truth were 100%, 100%, 80%.
+
+For generation-time sd, the true values were 2.39, 5.08, 10.49 days across the three regimes. The median posterior estimates across simulation replicates were 2.35, 4.66, 11.31 days, respectively. The median absolute errors were 0.04, 0.42, 0.83 days, corresponding to median absolute percentage errors of 1.87%, 8.26%, 7.88%. The proportions of replicates within 1 day of the truth were 100%, 80%, 80%.
