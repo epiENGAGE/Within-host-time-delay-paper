@@ -1,0 +1,5 @@
+"strain","quantity","estimate","lower_95","upper_95","result"
+"SGTF","Generation-time mean",3.12404,2.85354775,3.39037075,"3.12 [2.85, 3.39]"
+"SGTF","Generation-time SD",1.88724,1.6472865,2.124551,"1.89 [1.65, 2.12]"
+"non-SGTF","Generation-time mean",3.991825,3.82860325,4.1670905,"3.99 [3.83, 4.17]"
+"non-SGTF","Generation-time SD",2.22052,2.04044925,2.42583525,"2.22 [2.04, 2.43]"

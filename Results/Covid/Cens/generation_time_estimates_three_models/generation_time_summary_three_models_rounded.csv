@@ -1,0 +1,7 @@
+strain_label,strain,model,mean_gen_median,mean_gen_mean,mean_gen_q025,mean_gen_q975,sd_gen_median,sd_gen_mean,sd_gen_q025,sd_gen_q975,n_draws
+Delta,non-SGTF,Censored WH-informed,3.76,3.76,3.62,3.9,2.11,2.1,1.84,2.32,2000
+Delta,non-SGTF,Lognormal,3.85,3.85,3.71,3.99,2.16,2.16,1.8,2.54,2000
+Delta,non-SGTF,WH-informed,3.99,3.99,3.83,4.17,2.22,2.22,2.04,2.43,2000
+Omicron,SGTF,Censored WH-informed,3,3,2.82,3.18,1.82,1.81,1.59,2.04,2000
+Omicron,SGTF,Lognormal,2.97,2.97,2.73,3.22,1.48,1.49,1,2.08,2000
+Omicron,SGTF,WH-informed,3.12,3.12,2.85,3.39,1.89,1.89,1.65,2.12,2000

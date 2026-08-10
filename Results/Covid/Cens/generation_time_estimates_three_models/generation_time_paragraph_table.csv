@@ -1,0 +1,7 @@
+Strain,Model,Mean GT median,Mean GT 95% CrI lower,Mean GT 95% CrI upper,SD GT median,SD GT 95% CrI lower,SD GT 95% CrI upper
+Delta,Censored WH-informed,3.76,3.62,3.9,2.11,1.84,2.32
+Delta,Lognormal,3.85,3.71,3.99,2.16,1.8,2.54
+Delta,WH-informed,3.99,3.83,4.17,2.22,2.04,2.43
+Omicron,Censored WH-informed,3,2.82,3.18,1.82,1.59,2.04
+Omicron,Lognormal,2.97,2.73,3.22,1.48,1,2.08
+Omicron,WH-informed,3.12,2.85,3.39,1.89,1.65,2.12
