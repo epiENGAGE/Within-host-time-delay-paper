@@ -501,3 +501,179 @@ ggsave(
   height = 7.2,
   device = cairo_pdf
 )
+
+# BAYESIAN RECOVERY SUMMARIES
+library(dplyr)
+library(purrr)
+library(tibble)
+library(posterior)
+
+# True values
+true_mean_gen <- truth$true_mean_gen[1]
+true_sd_gen   <- truth$true_sd_gen[1]
+
+bayes_rows <- vector("list", nrow(fit_results))
+
+for (ii in seq_len(nrow(fit_results))) {
+
+  n_pairs <- fit_results$n_pairs[ii]
+  rep_id  <- fit_results$rep_id[ii]
+
+  fit_path <- file.path(
+    SIM_DIR,
+    sprintf("fit_n%s_rep%s.rds", n_pairs, rep_id)
+  )
+
+  if (!file.exists(fit_path)) {
+    warning("Missing fit: ", fit_path)
+    next
+  }
+
+  fit <- readRDS(fit_path)
+
+  draws <- fit$draws(
+    variables = c("mean_gen", "sd_gen"),
+    format = "draws_df"
+  )
+
+  mean_draws <- as.numeric(draws$mean_gen)
+  sd_draws   <- as.numeric(draws$sd_gen)
+
+  # 90% posterior credible intervals
+  mean_ci <- quantile(
+    mean_draws,
+    probs = c(0.05, 0.95),
+    na.rm = TRUE
+  )
+
+  sd_ci <- quantile(
+    sd_draws,
+    probs = c(0.05, 0.95),
+    na.rm = TRUE
+  )
+
+  bayes_rows[[ii]] <- tibble(
+    n_pairs = n_pairs,
+    rep_id = rep_id,
+
+    # Generation-time mean
+    mean_post_median = median(mean_draws, na.rm = TRUE),
+    mean_post_sd     = sd(mean_draws, na.rm = TRUE),
+    mean_q05         = mean_ci[1],
+    mean_q95         = mean_ci[2],
+    mean_ci_width    = mean_ci[2] - mean_ci[1],
+    mean_covered     = (
+      true_mean_gen >= mean_ci[1] &
+      true_mean_gen <= mean_ci[2]
+    ),
+    crps_mean_gen = crps_empirical(
+      mean_draws,
+      true_mean_gen
+    ),
+
+    # Generation-time SD
+    sd_post_median = median(sd_draws, na.rm = TRUE),
+    sd_post_sd     = sd(sd_draws, na.rm = TRUE),
+    sd_q05         = sd_ci[1],
+    sd_q95         = sd_ci[2],
+    sd_ci_width    = sd_ci[2] - sd_ci[1],
+    sd_covered     = (
+      true_sd_gen >= sd_ci[1] &
+      true_sd_gen <= sd_ci[2]
+    ),
+    crps_sd_gen = crps_empirical(
+      sd_draws,
+      true_sd_gen
+    )
+  )
+}
+
+bayes_results <- bind_rows(bayes_rows)
+
+# SUMMARISE ACROSS SIMULATION REPLICATES
+bayes_summary <- bayes_results %>%
+  group_by(n_pairs) %>%
+  summarise(
+
+    n_successful = n(),
+
+    # ------------------------------
+    # Generation-time mean
+    # ------------------------------
+    mean_crps = mean(crps_mean_gen, na.rm = TRUE),
+    median_crps = median(crps_mean_gen, na.rm = TRUE),
+
+    coverage_mean = mean(mean_covered, na.rm = TRUE),
+
+    median_ci_width_mean = median(
+      mean_ci_width,
+      na.rm = TRUE
+    ),
+
+    median_posterior_sd_mean = median(
+      mean_post_sd,
+      na.rm = TRUE
+    ),
+
+    # ------------------------------
+    # Generation-time SD
+    # ------------------------------
+    sd_crps = mean(crps_sd_gen, na.rm = TRUE),
+    median_crps_sd = median(crps_sd_gen, na.rm = TRUE),
+
+    coverage_sd = mean(sd_covered, na.rm = TRUE),
+
+    median_ci_width_sd = median(
+      sd_ci_width,
+      na.rm = TRUE
+    ),
+
+    median_posterior_sd_sd = median(
+      sd_post_sd,
+      na.rm = TRUE
+    ),
+
+    .groups = "drop"
+  )
+
+print(bayes_summary)
+
+bayes_summary_report <- bayes_summary %>%
+  mutate(
+    coverage_mean_pct = 100 * coverage_mean,
+    coverage_sd_pct   = 100 * coverage_sd
+  ) %>%
+  select(
+    n_pairs,
+    n_successful,
+
+    mean_crps,
+    coverage_mean_pct,
+    median_ci_width_mean,
+    median_posterior_sd_mean,
+
+    sd_crps,
+    coverage_sd_pct,
+    median_ci_width_sd,
+    median_posterior_sd_sd
+  )
+
+print(bayes_summary_report)
+
+write.csv(
+  bayes_results,
+  file.path(
+    SIM_DIR,
+    "simulation_bayesian_recovery_by_replicate.csv"
+  ),
+  row.names = FALSE
+)
+
+write.csv(
+  bayes_summary_report,
+  file.path(
+    SIM_DIR,
+    "simulation_bayesian_recovery_summary.csv"
+  ),
+  row.names = FALSE
+)
