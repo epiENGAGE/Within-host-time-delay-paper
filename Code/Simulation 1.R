@@ -1,5 +1,5 @@
 # Simulation 1
-setwd("~/Measles-county-ranking/GT/New V code/NEW V FIXED")
+setwd("~/Within-host-time-delay-framework/Code")
 
 suppressPackageStartupMessages({
   library(cmdstanr)
@@ -14,7 +14,7 @@ suppressPackageStartupMessages({
 OUT_DIR <- "~/Within-host-time-delay-framework/Results/Simulations/Simulation 1"
 dir.create(OUT_DIR, showWarnings = FALSE, recursive = TRUE)
 
-this_file_dir <- "~/Measles-county-ranking/GT/New V code"
+this_file_dir <- "~/Within-host-time-delay-framework/Code"
 STAN_FILE <- "~/Within-host-time-delay-framework/Code/mechanistic_obspair.stan"
 
 # Main simulation setup.
