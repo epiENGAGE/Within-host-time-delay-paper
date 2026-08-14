@@ -289,3 +289,145 @@ write_csv(
   text_numbers,
   file.path(FIG_DIR, "section_3_2_1_text_numbers.csv")
 )
+
+# CRPS from full posterior distributions
+library(posterior)
+library(purrr)
+crps_empirical <- function(draws, truth) {
+  x <- sort(as.numeric(draws))
+  x <- x[is.finite(x)]
+  
+  M <- length(x)
+  
+  if (M < 2) {
+    return(NA_real_)
+  }
+  
+  term_truth <- mean(abs(x - truth))
+  
+  # Efficient calculation of 0.5 * mean_{i,j}|x_i - x_j|
+  i <- seq_len(M)
+  pair_term <- sum((2 * i - M - 1) * x) / M^2
+  
+  term_truth - pair_term
+}
+
+
+# Known simulation truths
+true_mean_gen <- truth$true_mean_gen[1]
+true_sd_gen   <- truth$true_sd_gen[1]
+
+
+# Calculate CRPS for every successfully fitted replicate
+crps_rows <- vector("list", nrow(fit_results))
+
+for (ii in seq_len(nrow(fit_results))) {
+  
+  n_pairs <- fit_results$n_pairs[ii]
+  rep_id  <- fit_results$rep_id[ii]
+  
+  fit_path <- file.path(
+    SIM_DIR,
+    sprintf("fit_n%s_rep%s.rds", n_pairs, rep_id)
+  )
+  
+  if (!file.exists(fit_path)) {
+    warning("Fit not found: ", fit_path)
+    next
+  }
+  
+  fit <- readRDS(fit_path)
+  
+  # Extract full posterior draws of the two target quantities
+  draws <- fit$draws(
+    variables = c("mean_gen", "sd_gen"),
+    format = "draws_df"
+  )
+  
+  crps_rows[[ii]] <- tibble(
+    n_pairs = n_pairs,
+    rep_id = rep_id,
+    
+    crps_mean_gen = crps_empirical(
+      draws$mean_gen,
+      true_mean_gen
+    ),
+    
+    crps_sd_gen = crps_empirical(
+      draws$sd_gen,
+      true_sd_gen
+    )
+  )
+}
+
+crps_results <- bind_rows(crps_rows)
+
+
+# Save replicate-level CRPS values
+write_csv(
+  crps_results,
+  file.path(FIG_DIR, "simulation_crps_by_replicate.csv")
+)
+
+# Summarise CRPS by sample size
+crps_summary <- crps_results %>%
+  group_by(n_pairs) %>%
+  summarise(
+    n_replicates = n(),
+    
+    mean_crps_mean_gen =
+      mean(crps_mean_gen, na.rm = TRUE),
+    
+    median_crps_mean_gen =
+      median(crps_mean_gen, na.rm = TRUE),
+    
+    q25_crps_mean_gen =
+      quantile(crps_mean_gen, 0.25, na.rm = TRUE),
+    
+    q75_crps_mean_gen =
+      quantile(crps_mean_gen, 0.75, na.rm = TRUE),
+    
+    mean_crps_sd_gen =
+      mean(crps_sd_gen, na.rm = TRUE),
+    
+    median_crps_sd_gen =
+      median(crps_sd_gen, na.rm = TRUE),
+    
+    q25_crps_sd_gen =
+      quantile(crps_sd_gen, 0.25, na.rm = TRUE),
+    
+    q75_crps_sd_gen =
+      quantile(crps_sd_gen, 0.75, na.rm = TRUE),
+    
+    .groups = "drop"
+  )
+
+print(crps_summary, n = Inf)
+
+write_csv(
+  crps_summary,
+  file.path(FIG_DIR, "paper_crps_summary_by_sample_size.csv")
+)
+
+recovery_summary_with_crps <- recovery_summary %>%
+  left_join(
+    crps_summary %>%
+      select(
+        n_pairs,
+        mean_crps_mean_gen,
+        median_crps_mean_gen,
+        mean_crps_sd_gen,
+        median_crps_sd_gen
+      ),
+    by = "n_pairs"
+  )
+
+write_csv(
+  recovery_summary_with_crps,
+  file.path(
+    FIG_DIR,
+    "paper_recovery_summary_by_sample_size_with_crps.csv"
+  )
+)
+
+print(recovery_summary_with_crps, n = Inf)
