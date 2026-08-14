@@ -431,3 +431,73 @@ write_csv(
 )
 
 print(recovery_summary_with_crps, n = Inf)
+
+crps_long <- crps_results %>%
+  mutate(
+    n_pairs_f = factor(n_pairs, levels = sample_levels)
+  ) %>%
+  pivot_longer(
+    cols = c(crps_mean_gen, crps_sd_gen),
+    names_to = "quantity",
+    values_to = "crps"
+  ) %>%
+  mutate(
+    quantity = recode(
+      quantity,
+      crps_mean_gen = "Generation-time mean",
+      crps_sd_gen = "Generation-time SD"
+    ),
+    quantity = factor(
+      quantity,
+      levels = c("Generation-time mean", "Generation-time SD")
+    )
+  )
+
+p_crps <- ggplot(
+  crps_long,
+  aes(x = n_pairs_f, y = crps)
+) +
+  geom_boxplot(
+    outlier.alpha = 0.20,
+    width = 0.55,
+    linewidth = 0.35
+  ) +
+  geom_point(
+    position = position_jitter(width = 0.12, height = 0, seed = 12),
+    alpha = 0.25,
+    size = 0.8
+  ) +
+  facet_wrap(~ quantity, scales = "free_y", nrow = 1) +
+  labs(
+    x = "Number of simulated transmission pairs",
+    y = "CRPS"
+  ) +
+  theme_sim(11) +
+  theme(
+    strip.text = element_blank(),
+    strip.background = element_blank()
+  )
+
+p_combined <- (p_recovery / p_crps) +
+  plot_layout(heights = c(1.05, 1.0)) +
+  plot_annotation(tag_levels = "A") &
+  theme(
+    plot.tag = element_text(face = "bold", size = 16),
+    plot.tag.position = c(0.01, 0.98)
+  )
+
+ggsave(
+  file.path(FIG_DIR, "figure_sim_small_sample_recovery.png"),
+  p_combined,
+  width = 10.5,
+  height = 7.2,
+  dpi = 450
+)
+
+ggsave(
+  file.path(FIG_DIR, "figure_sim_small_sample_recovery.pdf"),
+  p_combined,
+  width = 10.5,
+  height = 7.2,
+  device = cairo_pdf
+)
