@@ -41,7 +41,7 @@ plot_heat_data <- fit_summary_by_prior %>%
       labels = c("Weak", "Moderate", "Strong")
     )
   ) %>%
-  select(
+  dplyr::select(
     accuracy,
     strength,
     median_abs_error_mean_gen,
@@ -102,7 +102,7 @@ plot_heat_data <- fit_summary_by_prior %>%
     parameter = NA_character_,
     moved_toward_truth_rate = NA_real_
   ) %>%
-  select(
+  dplyr::select(
     panel,
     accuracy,
     strength,
@@ -159,7 +159,7 @@ plot_move_data <- param_results %>%
     percent_improvement_vs_weak = NA_real_,
     label = NA_character_
   ) %>%
-  select(
+  dplyr::select(
     panel,
     accuracy,
     strength,
