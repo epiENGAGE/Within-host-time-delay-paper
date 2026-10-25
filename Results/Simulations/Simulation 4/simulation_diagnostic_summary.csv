@@ -1,0 +1,2 @@
+n_successful_fits,failure_rate,convergence_ok_rate,median_max_rhat,median_min_ess_bulk,median_min_ess_tail,median_divergences
+100,0,1,1.0130130277361697,386.4934371433942,279.62550211304404,0

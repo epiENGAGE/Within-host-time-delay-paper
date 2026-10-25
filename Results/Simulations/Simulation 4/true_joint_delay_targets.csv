@@ -1,0 +1,9 @@
+variable,true_value,moment,delay_code,delay
+mean_lp,2.6099698561335822,Mean,lp,Latent period
+sd_lp,2.046187385345394,SD,lp,Latent period
+mean_ip,2.740309394944199,Mean,ip,Incubation period
+sd_ip,2.0025692977963034,SD,ip,Incubation period
+mean_gen,5.060354079778465,Mean,gen,Generation time
+sd_gen,2.427456447399629,SD,gen,Generation time
+mean_si,5.052910690226309,Mean,si,Serial interval
+sd_si,3.6847799223712645,SD,si,Serial interval
