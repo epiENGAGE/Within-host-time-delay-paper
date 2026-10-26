@@ -1,0 +1,2 @@
+"dataset","model","n_pointwise_obs","elpd_loo","se_elpd_loo","looic","se_looic","p_loo","elpd_waic","se_elpd_waic","waic","se_waic","p_waic"
+"mpox_score9","Lognormal",34,-110.333282524725,4.78128533688148,220.66656504945,9.56257067376296,1.41594727192739,-110.335217126498,4.7829582085008,220.670434252997,9.5659164170016,1.41788187370063
