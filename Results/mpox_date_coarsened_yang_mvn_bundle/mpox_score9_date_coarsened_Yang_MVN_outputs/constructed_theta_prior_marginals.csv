@@ -1,0 +1,5 @@
+parameter,prior_mean,prior_sd,prior_type,yang_prior_source,yang_prior_sd_multiplier,incubation_mean_shift,incubation_sd_shift
+log_r,-1.1604753121399776,1.5624517038146808,Yang_MVN_only,shared_all_sites,2,8,3
+log_d,-0.8744044979213,0.4527579404383916,Yang_MVN_only,shared_all_sites,2,8,3
+m,13.2348905085401,3.9897541219807007,Yang_MVN_only,shared_all_sites,2,8,3
+log_kappa,0.2640305307423075,1.7495689502456273,Yang_MVN_only,shared_all_sites,2,8,3
