@@ -1,0 +1,6 @@
+parameter,transmission_model_time_scale,yang_source_time_scale,prior_mean,prior_sd,yang_posterior_mean,yang_posterior_sd,sd_multiplier,uses_symptom_relative_prior
+log_r,days^-1 on infection-time V(t),same rate parameter from day-post-onset V(t),-1.15079004878924,0.7410831113986167,-1.15079004878924,0.7410831113986167,1,FALSE
+log_d,days^-1 on infection-time V(t),same rate parameter from day-post-onset V(t),-0.87303607618375,0.22474627845761544,-0.87303607618375,0.22474627845761544,1,FALSE
+log_kappa,transition sharpness on infection-time V(t),same shape parameter from day-post-onset V(t),0.245472635249495,0.9231826240660479,0.245472635249495,0.9231826240660479,1,FALSE
+m,days since infection; weak broad prior only,Yang does not directly identify infection-time m,10,8,NA,NA,1,FALSE
+m_minus_mean_IP,days relative to model-implied mean symptom onset,Yang m is days post symptom onset,5.2406290305175,1.248258971831934,5.2406290305175,1.248258971831934,1,TRUE
