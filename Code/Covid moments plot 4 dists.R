@@ -658,7 +658,12 @@ p_fig3 <- ggplot(
     scales = "free_y",
     nrow = 1
   ) +
-  
+
+  scale_y_continuous(
+    limits = c(0, NA),
+    expand = expansion(mult = c(0, 0.05))
+  ) +
+
   scale_x_discrete(
     labels = model_plot_labels
   ) +
